@@ -1,0 +1,40 @@
+
+.result{
+    margin:auto;
+    height:50px;
+    width:415px;
+    background: lightcyan;
+    border: 1px solid lightgrey;
+}
+
+.calc_grid{
+display:grid;
+grid-template: repeat(3, 100px)/ repeat(4, 100px);
+justify-content: center;
+margin-top: 15px;
+grid-gap: 5px;
+}
+
+.calc_grid a,
+.btn_result a{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid lightgrey;
+    text-decoration: none;
+    font-size:25px
+    
+}
+
+.btn_result{
+    display:grid;
+    grid-template: repeat(1, 100px)/ repeat(1, 415px);
+    justify-content: center;
+    margin-top: 5px;
+    grid-gap: 5px;
+}
+
+
+
+
+
