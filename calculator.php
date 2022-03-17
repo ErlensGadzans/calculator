@@ -29,7 +29,6 @@ if ($result === "") {
 //checking btn & is it strin
 if (isset($_GET["btn"]) && is_string($_GET["btn"])) {
     $btn = $_GET["btn"];
-    $result = $result . $btn;
     //switch decribes cases, with who this variable might be equal
     switch ($btn) {
         case 1:
@@ -49,8 +48,35 @@ if (isset($_GET["btn"]) && is_string($_GET["btn"])) {
             saveData($data);
             break;
         case "+":
+            if ($data["number2"] != "") {
+                $result = getResult($data["number1"], $data["number2"], $data["operator"]);
+
+                $data = [
+                    "number1" => $result,
+                    "number2" => "",
+                    "operator" => "",
+                ];
+                saveData($data);
+                $btn = "";
+            } else {
+                $data["operator"] = $btn;
+            }
+            saveData($data);
+            break;
         case "-":
-            $data["operator"] = $btn;
+            if ($data["number2"] != "") {
+                $result = getResult($data["number1"], $data["number2"], $data["operator"]);
+
+                $data = [
+                    "number1" => $result,
+                    "number2" => "",
+                    "operator" => "",
+                ];
+                saveData($data);
+                $btn = "";
+            } else {
+                $data["operator"] = $btn;
+            }
             saveData($data);
             break;
         case "=":
@@ -67,6 +93,7 @@ if (isset($_GET["btn"]) && is_string($_GET["btn"])) {
             }
             break;
     }
+    $result = $result . $btn;
 } else {
     $btn = "";
 }
