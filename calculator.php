@@ -52,9 +52,19 @@ if (isset($_GET["btn"]) && is_string($_GET["btn"])) {
         case "-":
             $data["operator"] = $btn;
             saveData($data);
-
             break;
-        case "minus":
+        case "=":
+            if ($data["number2"] != "") {
+                $result = getResult($data["number1"], $data["number2"], $data["operator"]);
+
+                $data = [
+                    "number1" => $result,
+                    "number2" => "",
+                    "operator" => "",
+                ];
+                saveData($data);
+                $btn = "";
+            }
             break;
     }
 } else {
@@ -75,4 +85,15 @@ function getData()
     $data = json_decode($content, true);
 
     return $data;
+}
+
+
+function getResult($number1, $number2, $operator)
+{
+    switch ($operator) {
+        case '+':
+            return $number1 + $number2;
+        case '-':
+            return $number1 - $number2;
+    }
 }
