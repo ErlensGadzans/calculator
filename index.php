@@ -11,30 +11,30 @@
 
 <body>
 
-    <div class="result">
-        <?php include("calculator.php"); ?>
-    </div>
+
+    <?php include("calculator.php"); ?>
+    <div class="result"><?= $result ?></div>
     <div class="calc_grid">
-        <a href="?btn=7&result=<?= $result ?>">7</a>
-        <a href="?btn=8&result=<?= $result ?>">8</a>
-        <a href="?btn=9&result=<?= $result ?>">9</a>
-        <a href="?btn=reset&result=<?= $result ?>">AC</a>
+
+        <?php $values = [7, 8, 9, "reset", 4, 5, 6, "+",  1, 2, 3, "-"];
+
+        foreach ($values as $value) {
+        ?> <a href="?<?= http_build_query(["btn" => $value, "result" => $result]); ?>"><?= $value; ?></a>
 
 
-        <a href="?btn=4&result=<?= $result ?>">4</a>
-        <a href="?btn=5&result=<?= $result ?>">5</a>
-        <a href="?btn=6&result=<?= $result ?>">6</a>
-        <a href="?btn=plus&result=<?= $result ?>">+</a>
-
-
-        <a href="?btn=1&result=<?= $result ?>">1</a>
-        <a href="?btn=2&result=<?= $result ?>">2</a>
-        <a href="?btn=3&result=<?= $result ?>">3</a>
-        <a href="?btn=minus&result=<?= $result ?>">-</a>
+        <?php
+        }
+        ?>
     </div>
+
 
     <div class="btn_result">
-        <a href="?btn=enter&result=<?= $result ?>">=</a>
+        <?php $result1 = "=";
+        ?>
+        <a href="?<?= http_build_query(["btn" => $result1, "result" => $result]); ?>"><?= $result1; ?></a>
+        <?php
+        ?>
+
     </div>
 
 </body>
