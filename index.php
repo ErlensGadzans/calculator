@@ -29,9 +29,9 @@
 
 
     <div class="btn_result">
-        <?php $result1 = "=";
+        <?php $equal = "=";
         ?>
-        <a href="?<?= http_build_query(["btn" => $result1, "result" => $result]); ?>"><?= $result1; ?></a>
+        <a href="?<?= http_build_query(["btn" => $equal, "result" => $result]); ?>"><?= $equal; ?></a>
         <?php
         ?>
 
