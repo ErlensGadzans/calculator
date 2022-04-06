@@ -49,12 +49,13 @@ if (isset($_GET["btn"]) && is_string($_GET["btn"])) {
             break;
         case "+":
         case "-":
-        case "x":
             if ($data['number2'] === '') {
                 if ($data['number1'] === '') {
                     $btn = '';
-                } else {
+                } elseif ($data['operator'] == '') {
                     $data['operator'] = $btn;
+                } else {
+                    $btn = '';
                 }
             } else {
                 $result = getResult($data["number1"], $data["number2"], $data["operator"]);
@@ -81,11 +82,6 @@ if (isset($_GET["btn"]) && is_string($_GET["btn"])) {
                 $btn = "";
             }
             break;
-            // case 'reset':
-            //     echo '<script>function() {
-            //         window.location.href="http://erlens.me";
-            //       };</script>';
-            //     break;
     }
     $result = $result . $btn;
 } else {
