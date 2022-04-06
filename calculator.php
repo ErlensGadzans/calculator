@@ -48,25 +48,15 @@ if (isset($_GET["btn"]) && is_string($_GET["btn"])) {
             saveData($data);
             break;
         case "+":
-            if ($data["number2"] != "") {
-                $result = getResult($data["number1"], $data["number2"], $data["operator"]);
-
-                $data = [
-                    "number1" => $result,
-                    "number2" => "",
-                    "operator" => "",
-                ];
-                saveData($data);
-                $btn = "";
-            } else {
-                $data["operator"] = $btn;
-            }
-            saveData($data);
-            break;
         case "-":
-            if ($data["number2"] != "") {
+            if ($data['number2'] === '') {
+                if ($data['number1'] === '') {
+                    $btn = '';
+                } else {
+                    $data['operator'] = $btn;
+                }
+            } else {
                 $result = getResult($data["number1"], $data["number2"], $data["operator"]);
-
                 $data = [
                     "number1" => $result,
                     "number2" => "",
@@ -74,11 +64,11 @@ if (isset($_GET["btn"]) && is_string($_GET["btn"])) {
                 ];
                 saveData($data);
                 $btn = "";
-            } else {
-                $data["operator"] = $btn;
             }
             saveData($data);
             break;
+
+
         case "=":
             if ($data["number2"] != "") {
                 $result = getResult($data["number1"], $data["number2"], $data["operator"]);
