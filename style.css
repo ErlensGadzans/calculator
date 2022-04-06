@@ -15,24 +15,22 @@ margin-top: 15px;
 grid-gap: 5px;
 }
 
-.calc_grid a,
-.btn_result a{
+.calc_grid a{
     display:flex;
     align-items: center;
     justify-content: center;
     border: 1px solid lightgrey;
     text-decoration: none;
     font-size:25px
-    
+
 }
 
-.btn_result{
-    display:grid;
-    grid-template: repeat(1, 100px)/ repeat(1, 415px);
+.reset_btn{
+    display:flex;
     justify-content: center;
-    margin-top: 5px;
-    grid-gap: 5px;
 }
+
+
 
 
 

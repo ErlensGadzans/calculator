@@ -16,25 +16,23 @@
     <div class="result"><?= $result ?></div>
     <div class="calc_grid">
 
-        <?php $values = [7, 8, 9, "reset", 4, 5, 6, "+",  1, 2, 3, "-"];
+        <?php $values = [7, 8, 9, "+", 4, 5, 6, "-",  1, 2, 3, "="];
+
+
 
         foreach ($values as $value) {
+
         ?> <a href="?<?= http_build_query(["btn" => $value, "result" => $result]); ?>"><?= $value; ?></a>
 
 
         <?php
         }
+
         ?>
     </div>
 
-
-    <div class="btn_result">
-        <?php $equal = "=";
-        ?>
-        <a href="?<?= http_build_query(["btn" => $equal, "result" => $result]); ?>"><?= $equal; ?></a>
-        <?php
-        ?>
-
+    <div class="reset_btn">
+        <a href="?reset=true">Reset</a>
     </div>
 
 </body>
