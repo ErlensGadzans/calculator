@@ -1,10 +1,19 @@
 
+body{
+    background:rgba(128,128,128,255)
+}
 .result{
     margin:auto;
     height:50px;
     width:415px;
-    background: lightcyan;
-    border: 1px solid lightgrey;
+    background: rgba(255,255,255,255);
+    border-radius: 6px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Press Start 2P', cursive;
+   
 }
 
 .calc_grid{
@@ -13,21 +22,68 @@ grid-template: repeat(3, 100px)/ repeat(4, 100px);
 justify-content: center;
 margin-top: 15px;
 grid-gap: 5px;
+
 }
 
 .calc_grid a{
     display:flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid lightgrey;
+    background:rgba(86,167,154,255);
+    border-radius:6px;
     text-decoration: none;
-    font-size:25px
+    font-size:25px;
+    font-family: 'Press Start 2P', cursive;
+    color:rgba(204,231,225,255);
 
 }
 
 .reset_btn{
     display:flex;
     justify-content: center;
+    margin-top: 25px;
+}
+
+.reset_btn a{
+    text-decoration: none;
+    padding: 20px 20px;
+    background:rgba(86,167,154,255);
+    border-radius:6px;
+    text-decoration: none;
+    font-size:25px;
+    font-family: 'Press Start 2P', cursive;
+    color:rgba(204,231,225,255);
+}
+
+
+@media (max-width: 690px) {
+.result{
+    width: 295px;
+}
+.calc_grid{
+    grid-template: repeat(3, 70px)/ repeat(4, 70px);
+}
+}
+
+@media (max-width: 316px) {
+    .result{
+        width: 195px;
+        font-size: 15px;
+
+    }
+    .calc_grid{
+        grid-template: repeat(3, 50px)/ repeat(4, 50px);
+    }
+.calc_grid a{
+    font-size: 15px;
+}
+
+.reset_btn a{
+     font-size:15px;
+     padding: 15px 15px;
+}
+
+
 }
 
 
